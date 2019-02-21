@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import LoginScreen from './screens/LoginScreen.js'
+import Login from './components/Login.js'
 
 
 class App extends Component {
   render() {
     return (
-      <LoginScreen />
+        <Login />
     );
   }
 }
