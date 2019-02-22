@@ -1,0 +1,9 @@
+.body {
+    align-items: center;
+    align-self: center;
+    background-color: aqua;
+}
+
+.content {
+    background-color: blueviolet;
+}
