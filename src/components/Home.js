@@ -11,11 +11,17 @@ export default class Login extends Component {
     };
   }
 
+  submit(){
+
+  }
+
   render() {
     return (
-      <div className="body">
+      <div className="container">
+            <div className="panel">
               <img src={logo} width="50%" height="50%" alt=""/>
               <Button value="CLICK" onclick="submit()" />
+            </div>
       </div>
     );
   }

@@ -1,9 +1,3 @@
-.body {
-    align-items: center;
-    align-self: center;
-    background-color: aqua;
-}
-
-.content {
+.container {
     background-color: blueviolet;
 }

@@ -1,44 +1,68 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import {Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import "./Login.css";
+
+import logo from '../assets/logotitle.png';
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    this.handletextChangeLogin = this.handletextChangeLogin.bind(this);
-    this.handletextChangePassword = this.handletextChangePassword.bind(this);
+
     this.state = {
-      login: '',
-      password: ''
+      email: "",
+      password: ""
     };
   }
 
-  handleSubmit(e){
-    e.preventDefault()
+  validateForm() {
+    return this.state.email.length > 0 && this.state.password.length > 0;
   }
 
-  handletextChangeLogin(text){
-     this.setState({
-        login: text.target.value
-     })
-  }
-
-  handletextChangePassword(text){
+  handleChange = event => {
     this.setState({
-       password: text.target.value
-    })
- }
+      [event.target.id]: event.target.value
+    });
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+  }
 
   render() {
     return (
-      <div className="body">
-        <div className="login">
-          <form onSubmit={this.handleSubmit}>
-              <input value={this.state.login} onChange={this.handletextChangeLogin}/>          <br />
-              <input value={this.state.password} onChange={this.handletextChangePassword}/>         <br />
-              <input type="submit" value="Submit" />
-          </form>
-        </div>
+      <div className="Login">
+        <form onSubmit={this.handleSubmit}>
+            <FormGroup controlId="email" bsSize="large">
+              <img className="img" src={logo} width="50%" height="50%" alt=""/>
+            </FormGroup>
+            <FormGroup controlId="email" bsSize="large">
+            <ControlLabel>Email</ControlLabel>
+            <FormControl
+              autoFocus
+              type="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup controlId="password" bsSize="large">
+            <ControlLabel>Password</ControlLabel>
+            <FormControl
+              value={this.state.password}
+              onChange={this.handleChange}
+              type="password"
+            />
+          </FormGroup>
+          <Button
+            block
+            className="btn btn-primary"
+            size="sm"
+            //disabled={!this.validateForm()}
+            type="submit"
+          >
+            Entrar
+          </Button>
+        </form>
       </div>
     );
   }
 }
-
