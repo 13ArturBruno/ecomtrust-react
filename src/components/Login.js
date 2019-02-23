@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import {Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import "./Login.css";
-
+import "./css/Login.css";
 import logo from '../assets/logotitle.png';
+import { Redirect } from 'react-router-dom'
 
 export default class Login extends Component {
   constructor(props) {
@@ -10,7 +10,8 @@ export default class Login extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      redirect: false,
     };
   }
 
@@ -18,10 +19,27 @@ export default class Login extends Component {
     return this.state.email.length > 0 && this.state.password.length > 0;
   }
 
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/home' />
+    }
+  }
+
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     });
+  }
+
+  submitLogin = () => {
+    //condição com axios -> success
+      return <Redirect to='/home' />
   }
 
   handleSubmit = event => {
@@ -31,6 +49,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className="Login">
+         {this.renderRedirect()}
         <form onSubmit={this.handleSubmit}>
             <FormGroup controlId="email" bsSize="large">
               <img className="img" src={logo} width="50%" height="50%" alt=""/>
@@ -56,9 +75,9 @@ export default class Login extends Component {
             block
             className="btn btn-primary"
             size="sm"
-            //disabled={!this.validateForm()}
+            disabled={!this.validateForm()}
             type="submit"
-          >
+            onClick={this.setRedirect}          >
             Entrar
           </Button>
         </form>

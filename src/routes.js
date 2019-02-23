@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { isAuthenticated } from './auth';
 import Home from './components/Home.js';
 import Login from './components/Login.js';
+import Profile from './components/Profile.js';
+
 
 const PrivateRoute = ({ component: Component, ...rest}) => (
     <Route { ... rest} render={props => 
@@ -20,8 +22,9 @@ const PrivateRoute = ({ component: Component, ...rest}) => (
 const Routes = () => (
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={Home} />
-            <PrivateRoute path="/" component={Login} /> 
+            <Route exact path="/" component={Login} />
+            <PrivateRoute exact path="/home" component={Home} /> 
+            <PrivateRoute exact path="/profile" component={Profile} /> 
         </Switch>
     </BrowserRouter>
 );
