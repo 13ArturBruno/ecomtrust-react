@@ -1,6 +1,7 @@
 import React from 'react';
 import Routes from './routes'
-
-const App = () => <Routes />;
+import Modeltest from './components/model'
+//const App = () => <Routes />;
+const App = () => <Modeltest />;
 
 export default App;
