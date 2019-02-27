@@ -21,7 +21,7 @@ const customStyles = {
 };
 
 
-export default class Modeltest extends React.Component {
+export default class Signup extends React.Component {
   constructor() {
     super();
 
@@ -81,7 +81,6 @@ export default class Modeltest extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.openModal}>Open Modal</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -92,22 +91,22 @@ export default class Modeltest extends React.Component {
         <div className="panel">
             <div className="panel-options">
                 <div className="Login-with">
-                    <text>Entrar com:</text>
+                    <text className="text-signup">Cadastre-se com:</text>
                 </div>
                 <div className="facebook-login">
                     <div className="div-img-fb"><img className="icon" src={fb}  alt=""/></div>
-                    <div className="div-text-fb"><text>Facebook</text></div>
+                    <div className="div-text-fb"><text className="text-sn">Facebook</text></div>
                 </div>
                 <div className="line"><div className="line-separator"></div></div>
                 <div className="google-login">
                     <div className="div-img-gg"><img className="gg-icon icon" src={gg} alt=""/></div>
-                    <div className="div-txt-gg"><text>Google</text></div>
+                    <div className="div-txt-gg"><text className="text-sn">Google</text></div>
                 </div>
             </div>
             <div className="panel-form">
                 <FormGroup className="space-img" controlId="email" bsSize="large">
-                    <div className="div-img"><img  ref={subtitle => this.subtitle = subtitle} className="img" src={logo} width="100%" height="100%" alt=""/></div>
-                    <div className="div-title"><text className="text-title">Faça Login:</text></div>
+                    <div className="div-img"><img  ref={subtitle => this.subtitle = subtitle} className="img" src={logo} width="75%" height="75%" alt=""/></div>
+                    <div className="div-title"><text className="text-title">Cadastre-se:</text></div>
                 </FormGroup> 
                 <FormGroup className="space" controlId="email" bsSize="large">
                 <FormControl
@@ -132,11 +131,10 @@ export default class Modeltest extends React.Component {
                 size="sm"
                 type="submit"
                 >
-                Entrar
+                Cadastrar
                 </Button>
                 <div className="forget-create">
-                    <text className="forget-text">Esqueceu Sua Senha ?</text>
-                    <text className="create-text">Criar Conta</text>
+                    <text className="create-text">Entrar</text>
                 </div>
             </div>
         </div>
